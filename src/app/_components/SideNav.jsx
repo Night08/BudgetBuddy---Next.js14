@@ -3,13 +3,14 @@ import { UserButton, useUser } from "@clerk/nextjs";
 import { LayoutDashboard, PiggyBank, ReceiptText, ShieldCheck } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname} from "next/navigation";
 import React from "react";
 
 const SideNav = () => {
     const {user, isSignedIn} = useUser();
 
     const path = usePathname();
+
     const menuList = [
         { id: 1,
           title: "Dashboard",
@@ -35,7 +36,7 @@ const SideNav = () => {
 
   return ( <>
   <div className="h-screen relative px-4 py-2 border shadow-sm">
-    <Image src={'/logo.png'} alt="BudgetBuddy" width={150} height={70} />
+   <Link href={'/'} className="cursor-pointer"><Image src={'/logo.png'} alt="BudgetBuddy" width={150} height={70} /></Link> 
 
     <div className="mt-6">
         { menuList.map((menu, index) => { return ( <div key={index}>
